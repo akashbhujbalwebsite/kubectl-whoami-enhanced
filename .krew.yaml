@@ -25,52 +25,48 @@ spec:
     The REASON column requires list access to rolebindings/clusterrolebindings;
     falls back gracefully if that access is not available.
   platforms:
-    - selector:
-        matchLabels:
-          os: linux
-          arch: amd64
-      {{addURIAndSha "https://github.com/akashbhujbalwebsite/kubectl-whoami-enhanced/releases/download/{{ .TagName }}/kubectl-whoami-enhanced_linux_amd64.tar.gz" .TagName }}
-      bin: kubectl-whoami-enhanced
-      files:
-        - from: "*"
-          to: "."
-
-    - selector:
-        matchLabels:
-          os: linux
-          arch: arm64
-      {{addURIAndSha "https://github.com/akashbhujbalwebsite/kubectl-whoami-enhanced/releases/download/{{ .TagName }}/kubectl-whoami-enhanced_linux_arm64.tar.gz" .TagName }}
-      bin: kubectl-whoami-enhanced
-      files:
-        - from: "*"
-          to: "."
-
-    - selector:
-        matchLabels:
-          os: darwin
-          arch: amd64
-      {{addURIAndSha "https://github.com/akashbhujbalwebsite/kubectl-whoami-enhanced/releases/download/{{ .TagName }}/kubectl-whoami-enhanced_darwin_amd64.tar.gz" .TagName }}
-      bin: kubectl-whoami-enhanced
-      files:
-        - from: "*"
-          to: "."
-
-    - selector:
-        matchLabels:
-          os: darwin
-          arch: arm64
-      {{addURIAndSha "https://github.com/akashbhujbalwebsite/kubectl-whoami-enhanced/releases/download/{{ .TagName }}/kubectl-whoami-enhanced_darwin_arm64.tar.gz" .TagName }}
-      bin: kubectl-whoami-enhanced
-      files:
-        - from: "*"
-          to: "."
-
-    - selector:
-        matchLabels:
-          os: windows
-          arch: amd64
-      {{addURIAndSha "https://github.com/akashbhujbalwebsite/kubectl-whoami-enhanced/releases/download/{{ .TagName }}/kubectl-whoami-enhanced_windows_amd64.zip" .TagName }}
-      bin: kubectl-whoami-enhanced.exe
-      files:
-        - from: "*"
-          to: "."
+  - selector:
+      matchLabels:
+        os: linux
+        arch: amd64
+    {{addURIAndSha "https://github.com/akashbhujbalwebsite/kubectl-whoami-enhanced/releases/download/{{ .TagName }}/kubectl-whoami-enhanced_linux_amd64.tar.gz" .TagName }}
+    bin: kubectl-whoami-enhanced
+    files:
+    - from: "*"
+      to: "."
+  - selector:
+      matchLabels:
+        os: linux
+        arch: arm64
+    {{addURIAndSha "https://github.com/akashbhujbalwebsite/kubectl-whoami-enhanced/releases/download/{{ .TagName }}/kubectl-whoami-enhanced_linux_arm64.tar.gz" .TagName }}
+    bin: kubectl-whoami-enhanced
+    files:
+    - from: "*"
+      to: "."
+  - selector:
+      matchLabels:
+        os: darwin
+        arch: amd64
+    {{addURIAndSha "https://github.com/akashbhujbalwebsite/kubectl-whoami-enhanced/releases/download/{{ .TagName }}/kubectl-whoami-enhanced_darwin_amd64.tar.gz" .TagName }}
+    bin: kubectl-whoami-enhanced
+    files:
+    - from: "*"
+      to: "."
+  - selector:
+      matchLabels:
+        os: darwin
+        arch: arm64
+    {{addURIAndSha "https://github.com/akashbhujbalwebsite/kubectl-whoami-enhanced/releases/download/{{ .TagName }}/kubectl-whoami-enhanced_darwin_arm64.tar.gz" .TagName }}
+    bin: kubectl-whoami-enhanced
+    files:
+    - from: "*"
+      to: "."
+  - selector:
+      matchLabels:
+        os: windows
+        arch: amd64
+    {{addURIAndSha "https://github.com/akashbhujbalwebsite/kubectl-whoami-enhanced/releases/download/{{ .TagName }}/kubectl-whoami-enhanced_windows_amd64.zip" .TagName }}
+    bin: kubectl-whoami-enhanced.exe
+    files:
+    - from: "*"
+      to: "."
