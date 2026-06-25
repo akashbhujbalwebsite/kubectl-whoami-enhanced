@@ -95,6 +95,33 @@ All calls are read-only — no writes or mutations.
 - The REASON column shows the first matching binding when multiple bindings cover the same permission (v0.1 behaviour).
 - v0.1.0 checks 10 core resource types. CRDs are not included.
 
+## Releasing a new version
+
+Releases are fully automated via GitHub Actions + [krew-release-bot](https://github.com/rajatjindal/krew-release-bot).
+
+```bash
+git tag v0.2.0 && git push origin v0.2.0
+```
+
+This triggers the release workflow which:
+1. Builds binaries for all 5 platforms via GoReleaser
+2. Uploads them to the GitHub release
+3. Opens a PR to `kubernetes-sigs/krew-index` automatically with correct checksums
+
+## Documentation
+
+Full development documentation (all code changes, tests, bug fixes, PR submission process, and review notes) is stored at:
+
+```
+kubectl-whoami-enhanced-documentation.docx
+```
+
+Located in the project maintainer's local `Downloads/k8s-opensource-contribution/` folder.
+
+## Krew PR
+
+Submitted to Krew index: https://github.com/kubernetes-sigs/krew-index/pull/5923
+
 ## License
 
 Apache 2.0
