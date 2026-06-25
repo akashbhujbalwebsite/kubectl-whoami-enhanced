@@ -1,0 +1,50 @@
+project_name: kubectl-whoami-enhanced
+
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - id: kubectl-whoami-enhanced
+    main: .
+    binary: kubectl-whoami-enhanced
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - darwin
+      - windows
+    goarch:
+      - amd64
+      - arm64
+    ldflags:
+      - -s -w -X main.version={{.Version}}
+
+archives:
+  - id: kubectl-whoami-enhanced
+    name_template: "kubectl-whoami-enhanced_{{ .Os }}_{{ .Arch }}"
+    format_overrides:
+      - goos: windows
+        format: zip
+    files:
+      - LICENSE
+      - README.md
+
+checksum:
+  name_template: "checksums.txt"
+  algorithm: sha256
+
+release:
+  github:
+    owner: akashbhujbalwebsite
+    name: kubectl-whoami-enhanced
+  draft: true
+  name_template: "v{{.Version}}"
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"
+      - "^ci:"
